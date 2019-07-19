@@ -35,10 +35,12 @@ class DesktopApp extends StatelessWidget {
             children: <Widget>[
               FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: () {}),
               FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {},),
+              FlatButton(color: Colors.cyanAccent[75], child: Text("bla"), onPressed: () {}),
           Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                //Image.network(),
                 //Photo goes here
                 Spacer(),
                 Text(
