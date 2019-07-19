@@ -30,20 +30,23 @@ class DesktopApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              FlatButton(child: Text("Про меня"), onPressed: () {}),
+              FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: () {}),
+              FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {},),
           Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 //Photo goes here
+                Spacer(),
                 Text(
                   "Рудых Даниил",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(""),
+                Text("Робототехник"),
+                Spacer(),
               ])
         ]
       )
