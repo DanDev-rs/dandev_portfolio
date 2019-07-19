@@ -29,32 +29,61 @@ class DesktopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: () {}),
-              FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {},),
-              FlatButton(color: Colors.cyanAccent[75], child: Text("bla"), onPressed: () {}),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                //Image.network(),
-                //Photo goes here
-                Spacer(),
-                Text(
-                  "Рудых Даниил",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text("Робототехник"),
-                Spacer(),
-              ])
-        ]
-      )
-    );
+             FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: () {}),
+             FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {},),
+             FlatButton(color: Colors.cyanAccent[75], child: Text("Контакты"), onPressed: () {}),
+              ],
+            ),
+
+            Expanded(child: Container(child:  Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          image: DecorationImage(image: NetworkImage("https://i.ibb.co/yFRXkHx/image.jpg"),fit: BoxFit.cover)
+                        ),),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Рудых Даниил",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text("Робототехник и программист"),
+                      ],
+                    ),),),
+            Expanded(child: Container(color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("Здесь будет информация обо мне"),
+                Text("Моя почта: *rudyh.rdr@yandex.ru"),
+                Text("Мой телефон: *+79041472830")
+              ],
+            ),
+            ),),
+              ],
+            ),),)
+          ],
+        ),
+      );
   }
-}
+  }
 
 class MobileApp extends StatelessWidget {
   @override
@@ -69,3 +98,4 @@ class TabletApp extends StatelessWidget {
     return Container();
   }
 }
+
