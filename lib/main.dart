@@ -25,7 +25,13 @@ class Page extends StatelessWidget {
   }
 }
 
-class DesktopApp extends StatelessWidget {
+class DesktopApp extends StatefulWidget {
+  @override
+  _DesktopAppState createState() => _DesktopAppState();
+}
+
+class _DesktopAppState extends State<DesktopApp> {
+  Widget body = AboutMe();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,9 +42,21 @@ class DesktopApp extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-             FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: () {}),
-             FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {},),
-             FlatButton(color: Colors.cyanAccent[75], child: Text("Контакты"), onPressed: () {}),
+             FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: (){
+               setState(() {
+                body = AboutMe(); 
+               });
+             }),
+             FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {
+              setState(() {
+               body = MyProjects() ;
+              });
+             },),
+             FlatButton(color: Colors.cyanAccent[75], child: Text("Контакты"), onPressed: () {
+               setState(() {
+                body = Contacts(); 
+               });
+             }),
               ],
             ),
 
@@ -68,14 +86,7 @@ class DesktopApp extends StatelessWidget {
                       ],
                     ),),),
             Expanded(child: Container(color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Здесь будет информация обо мне"),
-                Text("Моя почта: *rudyh.rdr@yandex.ru"),
-                Text("Мой телефон: *+79041472830")
-              ],
-            ),
+            child:  body,
             ),),
               ],
             ),),)
@@ -83,7 +94,63 @@ class DesktopApp extends StatelessWidget {
         ),
       );
   }
+}
+
+class AboutMe extends StatelessWidget {
+  const AboutMe({
+    Key key,
+  }) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text("Здесь будет информация обо мне"),
+        Text("Моя почта: *rudyh.rdr@yandex.ru"),
+        Text("Мой телефон: *+79041472830")
+      ],
+    );
   }
+}
+
+class MyProjects extends StatelessWidget {
+  const MyProjects({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text("Проект 1"),
+        Text("Проект 2"),
+        Text("Проект 3")
+      ],
+    );
+  }
+}
+
+class Contacts extends StatelessWidget {
+  const Contacts({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text("Мой телеграм: *"),
+        Text("Моя почта: *rudyh.rdr@yandex.ru"),
+        Text("Мой телефон: *+79041472830"),
+        Text("Я на GitHub:")
+      ],
+    );
+  }
+}
 
 class MobileApp extends StatelessWidget {
   @override
