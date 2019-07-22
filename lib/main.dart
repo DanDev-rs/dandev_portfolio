@@ -35,64 +35,94 @@ class _DesktopAppState extends State<DesktopApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-             FlatButton(color: Colors.cyanAccent[75],child: Text("Про меня"), onPressed: (){
-               setState(() {
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              FlatButton(
+                  color: Colors.cyanAccent[75],
+                  child: Text("Обо мне"),
+                  onPressed: () {
+                    setState(() {
+                      body = AboutMe();
                 body = AboutMe(); 
-               });
-             }),
-             FlatButton(color: Colors.cyanAccent[75],child: Text("Проекты и достижения"), onPressed:() {
-              setState(() {
-               body = MyProjects() ;
-              });
-             },),
-             FlatButton(color: Colors.cyanAccent[75], child: Text("Контакты"), onPressed: () {
-               setState(() {
+                      body = AboutMe();
+                body = AboutMe(); 
+                      body = AboutMe();
+                    });
+                  }),
+              FlatButton(
+                color: Colors.cyanAccent[75],
+                child: Text("Проекты и достижения"),
+                onPressed: () {
+                  setState(() {
+                    body = MyProjects();
+                  });
+                },
+              ),
+              FlatButton(
+                  color: Colors.cyanAccent[75],
+                  child: Text("Контакты"),
+                  onPressed: () {
+                    setState(() {
+                      body = Contacts();
                 body = Contacts(); 
-               });
-             }),
-              ],
-            ),
-
-            Expanded(child: Container(child:  Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                        width: 200,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          image: DecorationImage(image: NetworkImage("https://i.ibb.co/yFRXkHx/image.jpg"),fit: BoxFit.cover)
-                        ),),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Рудых Даниил",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                      body = Contacts();
+                body = Contacts(); 
+                      body = Contacts();
+                    });
+                  }),
+            ],
+          ),
+          Expanded(
+            child: Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 200,
+                            height: 300,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://i.ibb.co/yFRXkHx/image.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Рудых Даниил",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text("Робототехник и программист"),
+                        ],
                       ),
-                      Text("Робототехник и программист"),
-                      ],
-                    ),),),
-            Expanded(child: Container(color: Colors.white,
-            child:  body,
-            ),),
-              ],
-            ),),)
-          ],
-        ),
-      );
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.white,
+                      child: body,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -101,15 +131,12 @@ class AboutMe extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text("Здесь будет информация обо мне"),
-        Text("Моя почта: *rudyh.rdr@yandex.ru"),
-        Text("Мой телефон: *+79041472830")
       ],
     );
   }
@@ -124,11 +151,7 @@ class MyProjects extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("Проект 1"),
-        Text("Проект 2"),
-        Text("Проект 3")
-      ],
+      children: <Widget>[Text("Проект 1"), Text("Проект 2"), Text("Проект 3")],
     );
   }
 }
@@ -143,10 +166,10 @@ class Contacts extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text("Мой телеграм: *"),
+        Text("Я в телеграм: *"),
+        Text("Я на GitHub:"),
         Text("Моя почта: *rudyh.rdr@yandex.ru"),
         Text("Мой телефон: *+79041472830"),
-        Text("Я на GitHub:")
       ],
     );
   }
